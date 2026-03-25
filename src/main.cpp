@@ -6,8 +6,7 @@
 GLFWwindow *create_window(const char *name, int x_size, int y_size, bool resizable);
 GladGLContext *create_context(GLFWwindow *window);
 void free_context(GladGLContext *context);
-
-void framebuffer_size_callback(GLFWwindow *window, int width, int height);  
+void get_input(GLFWwindow *window);
 
 // window dimensions
 const GLuint X_SIZE = 640, Y_SIZE = 480;
@@ -22,9 +21,6 @@ int main() {
         glfwTerminate();
         return -1;
     }
-
-    // handle input
-    // glfwSetKeyCallback(window, key_callback);
     
     // create a glad context
     GladGLContext *context = create_context(window);
@@ -35,12 +31,19 @@ int main() {
         return -1;
     }
 
-    glfwMakeContextCurrent(window);
     context->Viewport(0, 0, X_SIZE, Y_SIZE);
-
+    
     while (!glfwWindowShouldClose(window)) {
-        glfwSwapBuffers(window);
         glfwPollEvents();
+
+        // input
+        get_input(window);
+
+        // rendering loop
+        context->ClearColor(0.5f, 0.1f, 0.2f, 1.0f);
+        context->Clear(GL_COLOR_BUFFER_BIT);
+
+        glfwSwapBuffers(window);
     }
 
     free_context(context);
@@ -62,18 +65,23 @@ GLFWwindow *create_window(const char *name, int x_size, int y_size, bool resizab
     return window;
 }
 
-GladGLContext *create_context(GLFWwindow *window) {
+GladGLContext* create_context(GLFWwindow *window) {
     glfwMakeContextCurrent(window);
 
     GladGLContext* context = (GladGLContext*) calloc(1, sizeof(GladGLContext));
     if (!context) return NULL;
 
     int version = gladLoadGLContext(context, glfwGetProcAddress);
-    if (version == 0) { free(context); return NULL; }
+    std::cout << "Loaded OpenGL " << GLAD_VERSION_MAJOR(version) << "." << GLAD_VERSION_MINOR(version) << std::endl;
 
     return context;
 }
 
 void free_context(GladGLContext *context) {
     free(context);
+}
+
+void get_input(GLFWwindow *window) {
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
 }

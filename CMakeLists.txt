@@ -5,15 +5,16 @@ set(PROJECT_NAME OpenGLTemplate)
 project(${PROJECT_NAME} VERSION 1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 
+find_package(OpenGL REQUIRED)
+
 set(SOURCES
-    "src/glad/gl.c"
     "src/main.cpp"
+    "src/glad/gl.c"
 )
 
 set(LIBRARIES
-    "glfw")
-
-find_package(OpenGL REQUIRED)
+    "glfw"
+    "OpenGL::GL")
 
 add_subdirectory("lib/glfw")
 add_executable(${PROJECT_NAME} ${SOURCES})
