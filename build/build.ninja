@@ -49,6 +49,13 @@ cmake_ninja_workdir = /media/iyengar/ViDrive/Projects/opengl_template/build/
 
 build cmake_object_order_depends_target_OpenGLTemplate: phony || cmake_object_order_depends_target_glfw
 
+build CMakeFiles/OpenGLTemplate.dir/src/draw.cpp.o: CXX_COMPILER__OpenGLTemplate_unscanned_Debug /media/iyengar/ViDrive/Projects/opengl_template/src/draw.cpp || cmake_object_order_depends_target_OpenGLTemplate
+  DEP_FILE = CMakeFiles/OpenGLTemplate.dir/src/draw.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/media/iyengar/ViDrive/Projects/opengl_template/include -I/media/iyengar/ViDrive/Projects/opengl_template/lib/glfw/include
+  OBJECT_DIR = CMakeFiles/OpenGLTemplate.dir
+  OBJECT_FILE_DIR = CMakeFiles/OpenGLTemplate.dir/src
+
 build CMakeFiles/OpenGLTemplate.dir/src/main.cpp.o: CXX_COMPILER__OpenGLTemplate_unscanned_Debug /media/iyengar/ViDrive/Projects/opengl_template/src/main.cpp || cmake_object_order_depends_target_OpenGLTemplate
   DEP_FILE = CMakeFiles/OpenGLTemplate.dir/src/main.cpp.o.d
   FLAGS = -g -std=gnu++17
@@ -71,7 +78,7 @@ build CMakeFiles/OpenGLTemplate.dir/src/glad/gl.c.o: C_COMPILER__OpenGLTemplate_
 #############################################
 # Link the executable OpenGLTemplate
 
-build OpenGLTemplate: CXX_EXECUTABLE_LINKER__OpenGLTemplate_Debug CMakeFiles/OpenGLTemplate.dir/src/main.cpp.o CMakeFiles/OpenGLTemplate.dir/src/glad/gl.c.o | lib/glfw/src/libglfw3.a /usr/lib/x86_64-linux-gnu/librt.a /usr/lib/x86_64-linux-gnu/libm.so /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so || lib/glfw/src/libglfw3.a
+build OpenGLTemplate: CXX_EXECUTABLE_LINKER__OpenGLTemplate_Debug CMakeFiles/OpenGLTemplate.dir/src/draw.cpp.o CMakeFiles/OpenGLTemplate.dir/src/main.cpp.o CMakeFiles/OpenGLTemplate.dir/src/glad/gl.c.o | lib/glfw/src/libglfw3.a /usr/lib/x86_64-linux-gnu/librt.a /usr/lib/x86_64-linux-gnu/libm.so /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so || lib/glfw/src/libglfw3.a
   DEP_FILE = CMakeFiles/OpenGLTemplate.dir/link.d
   FLAGS = -g
   LINK_FLAGS = -Wl,--dependency-file=CMakeFiles/OpenGLTemplate.dir/link.d

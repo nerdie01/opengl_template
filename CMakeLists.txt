@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(OpenGL REQUIRED)
 
 set(SOURCES
+    "src/draw.cpp"
     "src/main.cpp"
     "src/glad/gl.c"
 )

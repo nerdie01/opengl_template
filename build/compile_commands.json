@@ -1,6 +1,12 @@
 [
 {
   "directory": "/media/iyengar/ViDrive/Projects/opengl_template/build",
+  "command": "/usr/bin/g++ -I/media/iyengar/ViDrive/Projects/opengl_template/include -I/media/iyengar/ViDrive/Projects/opengl_template/lib/glfw/include -g -std=gnu++17 -o CMakeFiles/OpenGLTemplate.dir/src/draw.cpp.o -c /media/iyengar/ViDrive/Projects/opengl_template/src/draw.cpp",
+  "file": "/media/iyengar/ViDrive/Projects/opengl_template/src/draw.cpp",
+  "output": "CMakeFiles/OpenGLTemplate.dir/src/draw.cpp.o"
+},
+{
+  "directory": "/media/iyengar/ViDrive/Projects/opengl_template/build",
   "command": "/usr/bin/g++ -I/media/iyengar/ViDrive/Projects/opengl_template/include -I/media/iyengar/ViDrive/Projects/opengl_template/lib/glfw/include -g -std=gnu++17 -o CMakeFiles/OpenGLTemplate.dir/src/main.cpp.o -c /media/iyengar/ViDrive/Projects/opengl_template/src/main.cpp",
   "file": "/media/iyengar/ViDrive/Projects/opengl_template/src/main.cpp",
   "output": "CMakeFiles/OpenGLTemplate.dir/src/main.cpp.o"

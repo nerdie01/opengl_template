@@ -1,6 +1,7 @@
 #include <iostream>
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
+#include <draw.h>
 
 // function prototypes
 GLFWwindow *create_window(const char *name, int x_size, int y_size, bool resizable);
@@ -36,14 +37,9 @@ int main() {
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
 
-        // input
+        // input and rendering for the main window
         get_input(window);
-
-        // rendering loop
-        context->ClearColor(0.5f, 0.1f, 0.2f, 1.0f);
-        context->Clear(GL_COLOR_BUFFER_BIT);
-
-        glfwSwapBuffers(window);
+        draw_to(window, context, draw_main);
     }
 
     free_context(context);
